@@ -6,10 +6,10 @@ import {
   KATEX_OPTIONS,
   f,
   provideMarkdown
-} from "./chunk-ZSE5J3GM.mjs";
+} from "./chunk-7JNXJBVL.mjs";
 import {
   provideToastr
-} from "./chunk-UOBCH2C2.mjs";
+} from "./chunk-SAMV52ZH.mjs";
 import {
   ActivatedRoute,
   BrowserDomAdapter,
@@ -26,11 +26,11 @@ import {
   withComponentInputBinding,
   withPreloading,
   withViewTransitions
-} from "./chunk-IESDD46D.mjs";
+} from "./chunk-QR2JA3A2.mjs";
 import {
   HTTP_ROOT_INTERCEPTOR_FNS,
   provideHttpClient
-} from "./chunk-JRMDAGFP.mjs";
+} from "./chunk-OVY2JI5I.mjs";
 import {
   APP_BASE_HREF,
   NullViewportScroller,
@@ -41,7 +41,7 @@ import {
   getDOM,
   registerLocaleData,
   setRootDomAdapter
-} from "./chunk-TDOK3CTI.mjs";
+} from "./chunk-PKOJDXYH.mjs";
 import {
   ANIMATION_MODULE_TYPE,
   APP_ID,
@@ -28275,80 +28275,84 @@ var es_default = ["es", [["a.\u202Fm.", "p.\u202Fm."], u, ["a.\xA0m.", "p.\xA0m.
 var routes = [
   __spreadValues({
     path: "",
-    loadComponent: () => import("./chunk-5GYIA6AT.mjs").then((m) => m.InicioComponent),
+    loadComponent: () => import("./chunk-COWK4J46.mjs").then((m) => m.InicioComponent),
     pathMatch: "full"
   }, true ? { \u0275entryName: "src/app/componentes/inicio.ts" } : {}),
   __spreadValues({
     path: "land",
-    loadComponent: () => import("./chunk-TSZWLNXV.mjs").then((m) => m.ChildScene)
+    loadComponent: () => import("./chunk-WRJR7J3D.mjs").then((m) => m.ChildScene)
   }, true ? { \u0275entryName: "src/app/componentes/vector.ts" } : {}),
   __spreadValues({
     path: "tramite",
-    loadComponent: () => import("./chunk-MDE7FGZN.mjs").then((m) => m.CreateNoteComponent)
+    loadComponent: () => import("./chunk-K2TNFLGH.mjs").then((m) => m.CreateNoteComponent)
   }, true ? { \u0275entryName: "src/app/componentes/tramite.ts" } : {}),
   __spreadValues({
     path: "chat",
-    loadComponent: () => import("./chunk-UDFMJE3K.mjs").then((m) => m.AdminComponent)
+    loadComponent: () => import("./chunk-7FRM5AH6.mjs").then((m) => m.AdminComponent)
   }, true ? { \u0275entryName: "src/app/componentes/chat.ts" } : {}),
   __spreadValues({
     path: "newww",
-    loadComponent: () => import("./chunk-IFVRXFL4.mjs").then((m) => m.CreateNoteComponent)
+    loadComponent: () => import("./chunk-5VQF7J2H.mjs").then((m) => m.CreateNoteComponent)
   }, true ? { \u0275entryName: "src/app/componentes/latexedit.ts" } : {}),
   __spreadValues({
     path: "articulo",
-    loadComponent: () => import("./chunk-DASPJNPF.mjs").then((m) => m.ScientificArticlesManagerComponent)
+    loadComponent: () => import("./chunk-7YAFF24Z.mjs").then((m) => m.ScientificArticlesManagerComponent)
   }, true ? { \u0275entryName: "src/app/componentes/articulos.ts" } : {}),
   __spreadValues({
     path: "actualizacion/:id",
-    loadComponent: () => import("./chunk-7G35INXY.mjs").then((m) => m.CreateNoteComponent)
+    loadComponent: () => import("./chunk-XQ5FFFBV.mjs").then((m) => m.CreateNoteComponent)
   }, true ? { \u0275entryName: "src/app/componentes/actualizacion.ts" } : {}),
   __spreadValues({
     path: "curses",
-    loadComponent: () => import("./chunk-Q7VHRBBZ.mjs").then((m) => m.CreateNoteComponent)
+    loadComponent: () => import("./chunk-YZU2TJBF.mjs").then((m) => m.CreateNoteComponent)
   }, true ? { \u0275entryName: "src/app/componentes/curses.ts" } : {}),
   __spreadValues({
     path: "tema/:idcurso/:idtema",
-    loadComponent: () => import("./chunk-UEKH4CAM.mjs").then((m) => m.ThemeComponent)
+    loadComponent: () => import("./chunk-YX35MEM3.mjs").then((m) => m.ThemeComponent)
   }, true ? { \u0275entryName: "src/app/componentes/actualizaciontheme.ts" } : {}),
   __spreadValues({
     path: "updatetest/:idtest",
-    loadComponent: () => import("./chunk-WDNSPV6Y.mjs").then((m) => m.TestsComponent)
+    loadComponent: () => import("./chunk-A7YJG4NO.mjs").then((m) => m.TestsComponent)
   }, true ? { \u0275entryName: "src/app/componentes/actualizacionupdatetest.ts" } : {}),
   __spreadValues({
     path: "tematest/:curseid/:themeid",
-    loadComponent: () => import("./chunk-CDR7ONZP.mjs").then((m) => m.ExportToExcelComponent)
+    loadComponent: () => import("./chunk-VS7O2MLS.mjs").then((m) => m.ExportToExcelComponent)
   }, true ? { \u0275entryName: "src/app/componentes/actualizaciontest.ts" } : {}),
   __spreadValues({
     path: "newmodel",
-    loadComponent: () => import("./chunk-Y4OXPYKD.mjs").then((m) => m.ThreeHtmlCanvasComponent)
+    loadComponent: () => import("./chunk-I3YASYLU.mjs").then((m) => m.ThreeHtmlCanvasComponent)
   }, true ? { \u0275entryName: "src/app/componentes/logomodel3d.ts" } : {}),
   __spreadValues({
     path: "model/:id/:email",
-    loadComponent: () => import("./chunk-VW37SERZ.mjs").then((m) => m.AppComponent)
+    loadComponent: () => import("./chunk-BKFCZ6UC.mjs").then((m) => m.AppComponent)
   }, true ? { \u0275entryName: "src/app/componentes/model3d.ts" } : {}),
   __spreadValues({
     path: "carreras",
-    loadComponent: () => import("./chunk-MBUKGORV.mjs").then((m) => m.PlyViewerComponent)
+    loadComponent: () => import("./chunk-WYZK7ABS.mjs").then((m) => m.PlyViewerComponent)
   }, true ? { \u0275entryName: "src/app/componentes/carreras.ts" } : {}),
   __spreadValues({
     path: "video/:code",
-    loadComponent: () => import("./chunk-ZGP7B4NV.mjs").then((m) => m.VideoComponent)
+    loadComponent: () => import("./chunk-K5XUUK7J.mjs").then((m) => m.VideoComponent)
   }, true ? { \u0275entryName: "src/app/componentes/video.ts" } : {}),
   __spreadValues({
     path: "panel",
-    loadComponent: () => import("./chunk-HLO3PK6O.mjs").then((m) => m.CreateNoteComponent)
+    loadComponent: () => import("./chunk-CMPHKFJ5.mjs").then((m) => m.CreateNoteComponent)
   }, true ? { \u0275entryName: "src/app/componentes/panel.ts" } : {}),
   __spreadValues({
+    path: "bot",
+    loadComponent: () => import("./chunk-QSHPDPBY.mjs").then((m) => m.BotDashboardComponent)
+  }, true ? { \u0275entryName: "src/app/componentes/botfather.ts" } : {}),
+  __spreadValues({
     path: "adicionarusuario",
-    loadComponent: () => import("./chunk-QDX6MXOJ.mjs").then((m) => m.UserFormComponent)
+    loadComponent: () => import("./chunk-INVFHN6Q.mjs").then((m) => m.UserFormComponent)
   }, true ? { \u0275entryName: "src/app/componentes/useradd.ts" } : {}),
   __spreadValues({
     path: "actualizarusuario",
-    loadComponent: () => import("./chunk-KECYH4P7.mjs").then((m) => m.PrivateComponent)
+    loadComponent: () => import("./chunk-ZCC4WDDW.mjs").then((m) => m.PrivateComponent)
   }, true ? { \u0275entryName: "src/app/componentes/userupdate.ts" } : {}),
   __spreadValues({
     path: "game",
-    loadComponent: () => import("./chunk-6MSBII5K.mjs").then((m) => m.FpsGameComponent)
+    loadComponent: () => import("./chunk-NQDN7EQI.mjs").then((m) => m.FpsGameComponent)
   }, true ? { \u0275entryName: "src/app/componentes/player.ts" } : {}),
   __spreadValues({
     path: "imagen2",
@@ -28356,59 +28360,59 @@ var routes = [
   }, true ? { \u0275entryName: "src/app/componentes/editorimg.ts" } : {}),
   __spreadValues({
     path: "imagen",
-    loadComponent: () => import("./chunk-VSE45LEG.mjs").then((m) => m.FabricEditorComponent)
+    loadComponent: () => import("./chunk-PIOURUL2.mjs").then((m) => m.FabricEditorComponent)
   }, true ? { \u0275entryName: "src/app/componentes/editorimg copy.ts" } : {}),
   __spreadValues({
     path: "blender",
-    loadComponent: () => import("./chunk-AS6HSLXW.mjs").then((m) => m.ModelBoradForm)
+    loadComponent: () => import("./chunk-TJUQOK43.mjs").then((m) => m.ModelBoradForm)
   }, true ? { \u0275entryName: "src/app/componentes/editorimg copy 2.ts" } : {}),
   __spreadValues({
     path: "pintura",
-    loadComponent: () => import("./chunk-GLWMZD3W.mjs").then((m) => m.ComplexCanvasComponent)
+    loadComponent: () => import("./chunk-NYKXX56P.mjs").then((m) => m.ComplexCanvasComponent)
   }, true ? { \u0275entryName: "src/app/componentes/p5js.ts" } : {}),
   __spreadValues({
     path: "statistic",
-    loadComponent: () => import("./chunk-T7R3DMK6.mjs").then((m) => m.SurveyDashboardComponent)
+    loadComponent: () => import("./chunk-IWL2K2XZ.mjs").then((m) => m.SurveyDashboardComponent)
   }, true ? { \u0275entryName: "src/app/componentes/d3js.ts" } : {}),
   __spreadValues({
     path: "sculpt",
-    loadComponent: () => import("./chunk-DEEOADDJ.mjs").then((m) => m.MeshSculptorComponent)
+    loadComponent: () => import("./chunk-3J6WQVAO.mjs").then((m) => m.MeshSculptorComponent)
   }, true ? { \u0275entryName: "src/app/componentes/sculpt.ts" } : {}),
   __spreadValues({
     path: "audio",
-    loadComponent: () => import("./chunk-ACGA3TQP.mjs").then((m) => m.MultiTrackAudioPlayerComponent)
+    loadComponent: () => import("./chunk-YLAFYO5H.mjs").then((m) => m.MultiTrackAudioPlayerComponent)
   }, true ? { \u0275entryName: "src/app/componentes/audio.ts" } : {}),
   __spreadValues({
     path: "acerca",
-    loadComponent: () => import("./chunk-I3JGF6CA.mjs").then((m) => m.Acerca)
+    loadComponent: () => import("./chunk-ZIW52X7B.mjs").then((m) => m.Acerca)
   }, true ? { \u0275entryName: "src/app/componentes/acerca.ts" } : {}),
   __spreadValues({
     path: "exhibicion",
-    loadComponent: () => import("./chunk-FQ4EJD3Q.mjs").then((m) => m.VirtualMuseumComponent)
+    loadComponent: () => import("./chunk-SZPNCAOS.mjs").then((m) => m.VirtualMuseumComponent)
   }, true ? { \u0275entryName: "src/app/componentes/exhibicion.ts" } : {}),
   __spreadValues({
-    path: "exhibicion/:id/:email",
-    loadComponent: () => import("./chunk-OO4DGE3U.mjs").then((m) => m.ArtCuratorshipComponent)
+    path: "exhibicion/:id/:user",
+    loadComponent: () => import("./chunk-NJXI5CLO.mjs").then((m) => m.ArtCuratorshipComponent)
   }, true ? { \u0275entryName: "src/app/componentes/exhibicionfiles.ts" } : {}),
   __spreadValues({
     path: "documentos",
-    loadComponent: () => import("./chunk-NIOXSQGC.mjs").then((m) => m.AdminDashboardComponent)
+    loadComponent: () => import("./chunk-L6AGUGCU.mjs").then((m) => m.AdminDashboardComponent)
   }, true ? { \u0275entryName: "src/app/componentes/documents.ts" } : {}),
   __spreadValues({
     path: "login",
-    loadComponent: () => import("./chunk-CNRJDTRT.mjs").then((m) => m.LoginComponent)
+    loadComponent: () => import("./chunk-7NYWW53Q.mjs").then((m) => m.LoginComponent)
   }, true ? { \u0275entryName: "src/app/componentes/login.ts" } : {}),
   __spreadValues({
     path: "stats",
-    loadComponent: () => import("./chunk-2QKH3OWZ.mjs").then((m) => m.SStats)
+    loadComponent: () => import("./chunk-B3MEOFTA.mjs").then((m) => m.SStats)
   }, true ? { \u0275entryName: "src/app/componentes/statbegin.ts" } : {}),
   __spreadValues({
     path: "blog",
-    loadComponent: () => import("./chunk-EW5OVNM2.mjs").then((m) => m.ForumComponent)
+    loadComponent: () => import("./chunk-QZPAV6KT.mjs").then((m) => m.ForumComponent)
   }, true ? { \u0275entryName: "src/app/componentes/blogger.ts" } : {}),
   __spreadValues({
     path: "statest/:tipo/:email",
-    loadComponent: () => import("./chunk-AO257QF4.mjs").then((m) => m.TestsComponent)
+    loadComponent: () => import("./chunk-7G2RDBKD.mjs").then((m) => m.TestsComponent)
   }, true ? { \u0275entryName: "src/app/componentes/substats.ts" } : {}),
   // Redirección para rutas no encontradas
   {
@@ -28477,7 +28481,7 @@ var serverRoutes = [
     renderMode: RenderMode.Client
   },
   {
-    path: "exhibicion/:id/:email",
+    path: "exhibicion/:id/:user",
     renderMode: RenderMode.Client
   },
   {

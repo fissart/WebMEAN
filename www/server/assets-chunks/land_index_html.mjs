@@ -13,8 +13,9 @@ export default `<!DOCTYPE html><html lang="en"><head>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&amp;display=swap" rel="stylesheet">
 
+<script src="https://static.izipay.pe/js/v1/checkout.js"></script>
   <!-- <script src="https://static.izipay.pe/js/v1/checkout.js"></script> -->
-  <script src="https://sandbox-checkout.izipay.pe/payments/v1/js/index.js"></script>
+  <!-- <script src="https://sandbox-checkout.izipay.pe/payments/v1/js/index.js"></script> -->
   <!-- For Production, use: https://checkout.izipay.pe/payments/v1/js/index.js -->
 
 <link rel="stylesheet" href="styles.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;family=Orbitron:wght@400..900&amp;family=Squada+One&amp;display=swap" as="style"><style ng-app-id="ng">
@@ -116,12 +117,12 @@ export default `<!DOCTYPE html><html lang="en"><head>
 
 <body translate="no">
   <app-root ng-version="21.0.5" ng-server-context="ssg"><router-outlet></router-outlet><app-child-scene _nghost-ng-c1443861373=""><div _ngcontent-ng-c1443861373="" class="child-container"><app-navbar _ngcontent-ng-c1443861373="" _nghost-ng-c3792361969=""><nav _ngcontent-ng-c3792361969="" class="navbar navbar-expand-lg px-0"><div _ngcontent-ng-c3792361969="" class="container px-2 d-flex justify-content-between align-items-center flex-nowrap position-relative"><a _ngcontent-ng-c3792361969="" routerlink="/" class="navbar-brand" href="/"><i _ngcontent-ng-c3792361969="" class="bi bi-house brand-icon"></i></a><button _ngcontent-ng-c3792361969="" type="button" aria-label="Alternar navegación" class="navbar-toggler border-0 shadow-none" aria-expanded="false"><i _ngcontent-ng-c3792361969="" class="bi bi-list brand-icon"></i></button><div _ngcontent-ng-c3792361969="" class="collapse navbar-collapse flex-grow-0 text-end"><ul _ngcontent-ng-c3792361969="" class="navbar-nav ms-auto mb-2 mb-lg-0 custom-nav-links"><li _ngcontent-ng-c3792361969="" class="nav-item"><a _ngcontent-ng-c3792361969="" routerlink="/documentos" routerlinkactive="active" class="nav-link" href="/documentos"> Documentos </a></li><li _ngcontent-ng-c3792361969="" class="nav-item"><a _ngcontent-ng-c3792361969="" routerlink="/land" routerlinkactive="active" class="nav-link active" href="/land"> Vector </a></li><!--container--><li _ngcontent-ng-c3792361969="" class="nav-item"><a _ngcontent-ng-c3792361969="" routerlink="/login" routerlinkactive="active" class="nav-link" href="/login"> Iniciar </a></li><!--container--></ul></div></div></nav></app-navbar><canvas _ngcontent-ng-c1443861373="" class="child-canvas"></canvas><div _ngcontent-ng-c1443861373="" class="label-renderer-container"></div><!--container--></div></app-child-scene><!--container--></app-root>
-<link rel="modulepreload" href="chunk-JEAYVHF3.js"><link rel="modulepreload" href="chunk-YIIFRX4I.js"><link rel="modulepreload" href="chunk-3QOIHUY2.js"><link rel="modulepreload" href="chunk-PFU5G7MY.js"><link rel="modulepreload" href="chunk-MMWGUNZC.js"><link rel="modulepreload" href="chunk-6QD4DAAM.js"><link rel="modulepreload" href="chunk-FXWIEX65.js"><link rel="modulepreload" href="chunk-3WPM564S.js"><script src="scripts.js" defer=""></script><script src="main.js" type="module"></script>
-<link rel="modulepreload" href="chunk-FYZ77GNB.js">
+<link rel="modulepreload" href="chunk-6CTWA3UM.js"><link rel="modulepreload" href="chunk-YIIFRX4I.js"><link rel="modulepreload" href="chunk-D7R3R2CZ.js"><link rel="modulepreload" href="chunk-P2ICAP4Z.js"><link rel="modulepreload" href="chunk-F5ND45CA.js"><link rel="modulepreload" href="chunk-2Q7FJWIC.js"><link rel="modulepreload" href="chunk-FXWIEX65.js"><link rel="modulepreload" href="chunk-3WPM564S.js"><script src="scripts.js" defer=""></script><script src="main.js" type="module"></script>
+<link rel="modulepreload" href="chunk-Q7MFFIJJ.js">
 <link rel="modulepreload" href="chunk-YC5JMNYG.js">
 <link rel="modulepreload" href="chunk-5ESGTH3B.js">
 <link rel="modulepreload" href="chunk-C3ORDXL6.js">
-<link rel="modulepreload" href="chunk-U3CDTOVP.js">
+<link rel="modulepreload" href="chunk-6ZRP3T4M.js">
 <link rel="modulepreload" href="chunk-DJCOHPHY.js">
 <link rel="modulepreload" href="chunk-TPI4OM5L.js">
 <link rel="modulepreload" href="chunk-ZUJZQ355.js">

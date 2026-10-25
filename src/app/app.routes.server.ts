@@ -26,7 +26,7 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Client
   },
   {
-  path: 'exhibicion/:id/:email',
+  path: 'exhibicion/:id/:user',
   renderMode: RenderMode.Client
   },
   {

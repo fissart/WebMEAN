@@ -13,8 +13,9 @@ export default `<!DOCTYPE html><html lang="en"><head>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&amp;display=swap" rel="stylesheet">
 
+<script src="https://static.izipay.pe/js/v1/checkout.js"></script>
   <!-- <script src="https://static.izipay.pe/js/v1/checkout.js"></script> -->
-  <script src="https://sandbox-checkout.izipay.pe/payments/v1/js/index.js"></script>
+  <!-- <script src="https://sandbox-checkout.izipay.pe/payments/v1/js/index.js"></script> -->
   <!-- For Production, use: https://checkout.izipay.pe/payments/v1/js/index.js -->
 
 <link rel="stylesheet" href="styles.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&amp;display=swap" as="style"><link rel="preload" href="https://fonts.googleapis.com/css2?family=Black+Ops+One&amp;family=Orbitron:wght@400..900&amp;family=Squada+One&amp;display=swap" as="style"><style ng-app-id="ng">
@@ -66,9 +67,9 @@ export default `<!DOCTYPE html><html lang="en"><head>
 </markdown><!--container--><markdown><p><span class="katex-display"><span class="katex"><span class="katex-mathml">e=mc2e = mc^2</span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut"></span><span class="mord mathnormal">e</span><span class="mspace"></span><span class="mrel">=</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"><span><span class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span> </p>
 </markdown><!--container--><markdown><p>La formula de la relatividad es <span class="katex"><span class="katex-mathml">e=mc2e = mc^2</span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut"></span><span class="mord mathnormal">e</span><span class="mspace"></span><span class="mrel">=</span><span class="mspace"></span></span><span class="base"><span class="strut"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"><span><span class="pstrut"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>. </p>
 </markdown><!--container--></div></app-math-demo><!--container--></app-root>
-<link rel="modulepreload" href="chunk-JEAYVHF3.js"><link rel="modulepreload" href="chunk-YIIFRX4I.js"><link rel="modulepreload" href="chunk-3QOIHUY2.js"><link rel="modulepreload" href="chunk-PFU5G7MY.js"><link rel="modulepreload" href="chunk-MMWGUNZC.js"><link rel="modulepreload" href="chunk-6QD4DAAM.js"><link rel="modulepreload" href="chunk-FXWIEX65.js"><link rel="modulepreload" href="chunk-3WPM564S.js"><script src="scripts.js" defer=""></script><script src="main.js" type="module"></script>
-<link rel="modulepreload" href="chunk-REPTPLTH.js">
-<link rel="modulepreload" href="chunk-U3CDTOVP.js">
+<link rel="modulepreload" href="chunk-6CTWA3UM.js"><link rel="modulepreload" href="chunk-YIIFRX4I.js"><link rel="modulepreload" href="chunk-D7R3R2CZ.js"><link rel="modulepreload" href="chunk-P2ICAP4Z.js"><link rel="modulepreload" href="chunk-F5ND45CA.js"><link rel="modulepreload" href="chunk-2Q7FJWIC.js"><link rel="modulepreload" href="chunk-FXWIEX65.js"><link rel="modulepreload" href="chunk-3WPM564S.js"><script src="scripts.js" defer=""></script><script src="main.js" type="module"></script>
+<link rel="modulepreload" href="chunk-YG2JMIWC.js">
+<link rel="modulepreload" href="chunk-6ZRP3T4M.js">
 <link rel="modulepreload" href="chunk-DJCOHPHY.js">
 
 

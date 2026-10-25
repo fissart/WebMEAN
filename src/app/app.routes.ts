@@ -67,6 +67,10 @@ export const routes: Routes = [
     loadComponent: () => import('./componentes/panel').then((m) => m.CreateNoteComponent)
   },
   {
+    path: 'bot',
+    loadComponent: () => import('./componentes/botfather').then((m) => m.BotDashboardComponent)
+  },
+  {
     path: 'adicionarusuario',
     loadComponent: () => import('./componentes/useradd').then((m) => m.UserFormComponent)
   },
@@ -115,7 +119,7 @@ export const routes: Routes = [
     loadComponent: () => import('./componentes/exhibicion').then((m) => m.VirtualMuseumComponent)
   },
   {
-    path: 'exhibicion/:id/:email',
+    path: 'exhibicion/:id/:user',
     loadComponent: () => import('./componentes/exhibicionfiles').then((m) => m.ArtCuratorshipComponent)
   },
   {

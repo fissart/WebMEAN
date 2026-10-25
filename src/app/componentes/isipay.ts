@@ -208,6 +208,7 @@ export class CheckoutIzipayComponent implements OnInit {
         }
       };
 
+      
       // 4. Mostrar el Checkout utilizando obligatoriamente LoadForm con la "L" en mayúscula
       if (checkout && typeof checkout.LoadForm === 'function') {
         checkout.LoadForm({
