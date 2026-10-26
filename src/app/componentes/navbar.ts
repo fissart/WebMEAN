@@ -29,18 +29,18 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
         <div class="collapse navbar-collapse flex-grow-0 text-end" [class.show]="isMenuOpen()">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 custom-nav-links">
             <li class="nav-item">
-              <a class="nav-link" routerLink="/documentos" routerLinkActive="active" (click)="closeMenu()">
+              <a class="nav-link ffont" routerLink="/documentos" routerLinkActive="active" (click)="closeMenu()">
                 Documentos
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/land" routerLinkActive="active" (click)="closeMenu()">
+              <a class="nav-link ffont" routerLink="/land" routerLinkActive="active" (click)="closeMenu()">
                 Vector
               </a>
             </li>
             @if (auth) {
               <li class="nav-item">
-                <a class="nav-link" routerLink="/panel" routerLinkActive="active" (click)="closeMenu()">
+                <a class="nav-link ffont" routerLink="/panel" routerLinkActive="active" (click)="closeMenu()">
                   Panel
                 </a>
               </li>
@@ -55,7 +55,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
               </li>
             } @else {
               <li class="nav-item">
-                <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+                <a class="nav-link ffont" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
                   Iniciar
                 </a>
               </li>
@@ -75,17 +75,14 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
       box-shadow: none;
     }
     .brand-icon {
-      color: #25053aff;
+      color: #075b63ff;
       font-size: 34px;
     }
-    .custom-nav-links {
-      font-size: 18px;
-    }
     .custom-nav-links .nav-link {
-      color: #25053aff !important;
+      color: #075b63ff !important;
     }
     .custom-nav-links .nav-link:hover {
-      color: #25053aff !important;
+      color: #075b63ff !important;
     }
     
     /* Posicionamiento móvil exacto debajo del botón/icono */

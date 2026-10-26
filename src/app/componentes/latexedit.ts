@@ -38,7 +38,7 @@ interface NoteFile {
     <div class="py-5"></div>
     <div class="container-fluid px-4" style="max-width: 1400px;">
         <!-- Cabecera Superior -->
-        <div class="d-flex justify-content-between align-items-center mb-4 p-3 bg-white border rounded shadow-sm">
+        <div class="d-flex justify-content-between align-items-center mb-4">
           <div class="d-flex align-items-center gap-3">
             <!-- Botón para esconder / mostrar la barra lateral de archivos -->
             <button
@@ -68,7 +68,7 @@ interface NoteFile {
               <button
                 type="button"
                 (click)="viewPdf()"
-                class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1 shadow-sm px-3 py-2"
+                class="btn btn-sm btn-outline-primary d-flex align-items-center gap-1 shadow-sm px-1 py-1"
                 title="Ver el último PDF compilado"
               >
                 <i class="bi bi-file-earmark-pdf"></i> Ver PDF Reciente
@@ -82,16 +82,29 @@ interface NoteFile {
           
           <!-- COLUMNA DERECHA: Editor y Acciones -->
           <div [class]="isSidebarVisible() ? 'col-lg-8 col-md-7' : 'col-12'">
-            <div class="card border-0 shadow-sm p-4 bg-white">
+            <div class="" [class.fullscreen-editor]="isFullscreen()">
               <div class="d-flex justify-content-between align-items-center mb-2">
                 <label for="textContent" class="form-label fw-bold m-0 text-secondary">
                   <i class="bi bi-code-square"></i> Código LaTeX / Asymptote: <small class="text-muted fw-normal ms-2">(Presiona <kbd>Ctrl</kbd> + <kbd>Enter</kbd> para compilar)</small>
                 </label>
-                <small class="text-muted font-monospace">Activo: <strong>{{ selectedTitle() }}</strong></small>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <small class="text-muted font-monospace">Activo: <strong>{{ selectedTitle() }}</strong></small>
+                  <!-- Botón de Pantalla Completa -->
+                  <button
+                    type="button"
+                    (click)="toggleFullscreen()"
+                    class="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1 px-2 py-1 shadow-sm"
+                    [title]="isFullscreen() ? 'Salir de Pantalla Completa' : 'Pantalla Completa'"
+                  >
+                    <i class="bi" [class.bi-fullscreen-exit]="isFullscreen()" [class.bi-fullscreen]="!isFullscreen()"></i>
+                    <span class="d-none d-sm-inline">{{ isFullscreen() ? 'Restaurar' : 'Maximizar' }}</span>
+                  </button>
+                </div>
               </div>
 
-              <!-- EDITOR CON CAPA DE COLOREADO Y ALTURA FLUIDA -->
-              <div class="editor-main-wrapper position-relative border rounded bg-light d-flex overflow-hidden shadow-sm">
+              <!-- EDITOR SIMPLE -->
+              <div class="editor-main-wrapper position-relative border rounded bg-light d-flex overflow-hidden shadow-sm" [style.height]="isFullscreen() ? 'calc(100vh - 140px)' : '65vh'">
                 
                 <!-- BOTÓN FLOTANTE EN LA ESQUINA INFERIOR DERECHA -->
                 <button
@@ -110,18 +123,14 @@ interface NoteFile {
                 </button>
 
                 <!-- Columna de Números de Línea -->
-                <div #lineNumbers class="line-numbers py-2 px-1 text-end select-none font-monospace text-muted bg-light border-end">
+                <div #lineNumbers class="line-numbers py-3 px-2 text-end select-none font-monospace text-muted bg-light border-end">
                   @for (line of lineCountArray(); track $index) {
                     <div>{{ $index + 1 }}</div>
                   }
                 </div>
 
-                <!-- Contenedor del Editor de Código con Coloreado -->
-                <div class="editor-container position-relative flex-grow-1 h-100 overflow-hidden">
-                  <!-- Capa de resaltado de sintaxis subyacente -->
-                  <pre #syntaxLayer class="syntax-highlight-layer m-0 p-3 pb-5 position-absolute top-0 start-0 w-100 h-100" aria-hidden="true"><code [innerHTML]="highlightedCode()"></code></pre>
-
-                  <!-- Área de Texto Interactiva -->
+                <!-- Contenedor del Editor de Código Único -->
+                <div class="editor-container position-relative flex-grow-1 h-100">
                   <textarea
                     #editorTextArea
                     id="textContent"
@@ -130,7 +139,7 @@ interface NoteFile {
                     (scroll)="syncScroll($event)"
                     (keydown.control.enter)="!isCompiling() && sendEditedText(selectedTitle())"
                     (keydown.meta.enter)="!isCompiling() && sendEditedText(selectedTitle())"
-                    class="form-control w-100 h-100 code-editor border-0 shadow-none p-3 pb-5 position-absolute top-0 start-0"
+                    class="form-control h-100 code-editor border-0 shadow-none p-3 w-100"
                     placeholder="Seleccione o cree un archivo..."
                     [disabled]="isCompiling()"
                     spellcheck="false"
@@ -159,8 +168,8 @@ interface NoteFile {
             </div>
           </div>
 
-          <!-- COLUMNA IZQUIERDA: Archivos Asociados -->
-          @if (isSidebarVisible()) {
+          <!-- COLUMNA IZQUIERDA: Archivos Asociados (Oculto en modo fullscreen) -->
+          @if (isSidebarVisible() && !isFullscreen()) {
             <div class="col-lg-4 col-md-5">
               <div class="card border-0 shadow-sm h-100">
                 <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
@@ -179,7 +188,7 @@ interface NoteFile {
                     <button
                       type="button"
                       (click)="toggleSidebar()"
-                      class="btn btn-sm btn-warning d-flex align-items-center p-1 border-0"
+                      class="btn btn-sm btn-warning d-flex align-items-center gap-1 shadow-sm px-2 py-1"
                       title="Cerrar panel lateral"
                     >
                       Ocultar panel
@@ -193,8 +202,7 @@ interface NoteFile {
                       <ul class="list-group list-group-flush">
                         @for (file of noteFiles(); track $index) {
                           <li 
-                            class="list-group-item px-3 py-3 d-flex justify-content-between align-items-center border rounded mb-2 shadow-sm file-item"
-                            [class.border-primary]="selectedTitle() === file.atachtitle"
+                            class="list-group-item px-3 py-3 d-flex justify-content-between align-items-center rounded mb-2 shadow-sm file-item"
                             [class.bg-warning]="selectedTitle() === file.atachtitle"
                             style="cursor: pointer;"
                             (click)="selectFile(file); selectAndCompile(file._id)"
@@ -297,8 +305,25 @@ interface NoteFile {
       height: 65vh;
     }
 
+    /* Estilo para el modo Pantalla Completa (Fullscreen) */
+    .fullscreen-editor {
+      position: fixed !important;
+      top: 0;
+      left: 0;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 1050;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      padding: 1.5rem !important;
+      display: flex;
+      flex-direction: column;
+      background-color: #ffffff !important;
+    }
+
     .line-numbers {
-      width: 50px;
+      width: 55px;
+      font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
       font-size: 0.95rem;
       line-height: 1.5;
       user-select: none;
@@ -308,43 +333,25 @@ interface NoteFile {
       z-index: 2;
     }
 
-    .syntax-highlight-layer {
-      font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: #24292e;
-      background: transparent !important;
-      pointer-events: none;
-      white-space: pre-wrap;
-      word-break: break-word;
-      overflow: hidden;
-    }
-
     .code-editor {
       font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', monospace;
       font-size: 0.95rem;
       line-height: 1.5;
-      background-color: transparent !important;
-      color: transparent !important;
+      background-color: #fff !important;
+      color: #24292e !important;
       caret-color: #24292e;
       resize: none;
       tab-size: 2;
-      white-space: pre-wrap;
-      word-break: break-word;
-      overflow-y: auto;
+      white-space: pre;
+      word-break: normal;
+      overflow: auto;
+      height: 100%;
     }
 
     .code-editor:focus {
       outline: none;
       box-shadow: none;
     }
-
-    /* Colores del Syntax Highlighter */
-    ::ng-deep .token-comment { color: #6a737d; font-style: italic; }
-    ::ng-deep .token-keyword { color: #d73a49; font-weight: bold; }
-    ::ng-deep .token-command { color: #005cc5; }
-    ::ng-deep .token-bracket { color: #e36209; }
-    ::ng-deep .token-math { color: #6f42c1; }
 
     .floating-compile-btn {
       border-radius: 50rem;
@@ -395,6 +402,7 @@ export class CreateNoteComponent implements OnInit {
   public lastPdfBlob = signal<Blob | null>(null);
 
   public isSidebarVisible = signal<boolean>(true);
+  public isFullscreen = signal<boolean>(false);
   public showCreateModal = signal<boolean>(false);
   public newFileTitle = signal<string>('documento_nuevo');
   public compilationError = signal<{ message: string; details?: string } | null>(null);
@@ -404,30 +412,6 @@ export class CreateNoteComponent implements OnInit {
     const lines = text.split('\n').length;
     return new Array(Math.max(lines, 1));
   });
-
-  // Signal calculada para generar el HTML con resaltado de sintaxis
-  public highlightedCode = computed(() => {
-    const text = this.noteText() || '';
-    return this.escapeHtml(text)
-      .replace(/(%.*)$/gm, '<span class="token-comment">$1</span>')
-      .replace(/(\\documentclass|\\usepackage|\\begin|\\end|\\title|\\author|\\date|\\maketitle|\\section)/g, '<span class="token-keyword">$1</span>')
-      .replace(/(\\[a-zA-Z]+)/g, (match) => {
-        if (match.includes('documentclass') || match.includes('usepackage') || match.includes('begin') || match.includes('end') || match.includes('title') || match.includes('author') || match.includes('date') || match.includes('maketitle') || match.includes('section')) {
-          return match;
-        }
-        return `<span class="token-command">${match}</span>`;
-      })
-      .replace(/([\[\]\{\}])/g, '<span class="token-bracket">$1</span>');
-  });
-
-  private escapeHtml(str: string): string {
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-  }
 
   ngOnInit(): void {
     const user = this.authUser();
@@ -454,21 +438,20 @@ export class CreateNoteComponent implements OnInit {
     this.cdr.markForCheck();
   }
 
+  public toggleFullscreen(): void {
+    this.isFullscreen.update(fs => !fs);
+    this.cdr.markForCheck();
+  }
+
   public onTextChange(value: string): void {
     this.noteText.set(value);
   }
 
   public syncScroll(event: Event): void {
     const textarea = event.target as HTMLTextAreaElement;
-    const wrapper = textarea.parentElement;
-    if (wrapper) {
-      const lineNumbersDiv = wrapper.previousElementSibling as HTMLElement;
-      const syntaxLayer = wrapper.querySelector('.syntax-highlight-layer') as HTMLElement;
-      if (lineNumbersDiv) lineNumbersDiv.scrollTop = textarea.scrollTop;
-      if (syntaxLayer) {
-        syntaxLayer.scrollTop = textarea.scrollTop;
-        syntaxLayer.scrollLeft = textarea.scrollLeft;
-      }
+    const lineNumbersDiv = textarea.parentElement?.previousElementSibling as HTMLElement;
+    if (lineNumbersDiv) {
+      lineNumbersDiv.scrollTop = textarea.scrollTop;
     }
   }
 
@@ -626,7 +609,7 @@ export class CreateNoteComponent implements OnInit {
         const blob = new Blob([pdf], { type: 'application/pdf' });
         this.lastPdfBlob.set(blob);
 
-        this.toastr.success(`PDF generado para "${targetTitle}" en ${compileTime} segundos`);
+        this.toastr.success(`PDF generado`);
 
         const url = window.URL.createObjectURL(blob);
         window.open(url, '_blank');

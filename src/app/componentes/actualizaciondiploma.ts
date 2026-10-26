@@ -47,7 +47,7 @@ export interface DiplomaData {
       (click)="exportPdf()" 
       class="btn btn-outline-primary" 
       style="margin: .1em;" 
-      [disabled]="loading()">
+      [disabled]="loading()"><i class="bi bi-printer"></i>
       {{ loading() ? 'GENERANDO...' : 'IMPRIMIR DIPLOMA ' + (nota() === 0 ? '' : nota()) }}
     </button>
   `

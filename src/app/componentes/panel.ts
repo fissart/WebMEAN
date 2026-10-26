@@ -23,6 +23,7 @@ import { ExportToPdfComponent } from './notasstdpdf';
 import { ExportTohtmlComponent } from './notashtml';
 import { AdminStudentManagerComponent } from './users';
 import { ExportToExcelComponent } from './notasexcel';
+import { UserLoaderComponent } from './userget'; // Ajusta la ruta de importación
 
 timeago.register('es', es);
 
@@ -92,7 +93,8 @@ export interface ConvalidateRecord {
     CommonModule,
     FormsModule,
     RouterModule,
-    TimeAgoPipe
+    TimeAgoPipe,
+    UserLoaderComponent
   ],
   template: `
     <!-- Contenedor Toast / Notificaciones -->
@@ -176,7 +178,10 @@ export interface ConvalidateRecord {
 
     <app-navbar></app-navbar>  
     <div class="py-5"></div>
-
+<app-user-loader 
+      (userUpdated)="handleUserUpdated($event)" 
+      (onError)="handleError($event)">
+    </app-user-loader>
     <!-- Contenido Principal -->
     <div class="container">
       <div class="p-1 my-1 text-center ffont h3">
@@ -343,13 +348,12 @@ export interface ConvalidateRecord {
                     (error)="handleImageError($event)"
                   />
                   <div class="overlay-text p-2">
-                    <div class="mb-3 h4 border rounded ffont text-light">
+                    <div class="mb-3 h5 border rounded ffont">
                       {{ message.title }} [{{ message.mencion }}] [{{ message.ciclo }}]
                     </div>
                     <div>
                       <button
-                        class="btn btn-warning text-light w-100 mt-2"
-                        style="background-color: rgba(0, 0, 0, 0.5);"
+                        class="btn btn-info text-light w-100 mt-2"
                         (click)="navigateToCourse(message)"
                       >
                         Ir al curso
@@ -535,6 +539,16 @@ export class CreateNoteComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  public handleUserUpdated(updatedUser: any): void {
+    this.activeUser.set(updatedUser);
+  }
+
+  public handleError(error: any): void {
+    if (error.status === 401) {
+      console.log('Sesión expirada o no autorizada.');
+    }
   }
 
   showToast(message: string, type: 'info' | 'error' | 'warning' | 'dark' = 'info') {

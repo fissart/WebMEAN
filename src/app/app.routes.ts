@@ -15,11 +15,11 @@ export const routes: Routes = [
     loadComponent: () => import('./componentes/tramite').then((m) => m.CreateNoteComponent)
   },
   {
-    path: 'chat',
+    path: 'socket',
     loadComponent: () => import('./componentes/chat').then((m) => m.AdminComponent)
   },
   {
-    path: 'newww',
+    path: 'latex',
     loadComponent: () => import('./componentes/latexedit').then((m) => m.CreateNoteComponent)
   },
   {
@@ -31,7 +31,7 @@ export const routes: Routes = [
     loadComponent: () => import('./componentes/actualizacion').then((m) => m.CreateNoteComponent)
   },
   {
-    path: 'curses',
+    path: 'courses',
     loadComponent: () => import('./componentes/curses').then((m) => m.CreateNoteComponent)
   },
   {

@@ -128,34 +128,31 @@ export default `<!DOCTYPE html><html lang="en"><head>
 }
 /*# sourceMappingURL=/player.css.map */</style><style ng-app-id="ng">
 
-.navbar[_ngcontent-ng-c3792361969] {
+.navbar[_ngcontent-ng-c3327815651] {
   z-index: 12;
   position: absolute;
   width: 100%;
   background: transparent;
   box-shadow: none;
 }
-.brand-icon[_ngcontent-ng-c3792361969] {
-  color: #25053aff;
+.brand-icon[_ngcontent-ng-c3327815651] {
+  color: #075b63ff;
   font-size: 34px;
 }
-.custom-nav-links[_ngcontent-ng-c3792361969] {
-  font-size: 18px;
+.custom-nav-links[_ngcontent-ng-c3327815651]   .nav-link[_ngcontent-ng-c3327815651] {
+  color: #075b63ff !important;
 }
-.custom-nav-links[_ngcontent-ng-c3792361969]   .nav-link[_ngcontent-ng-c3792361969] {
-  color: #25053aff !important;
-}
-.custom-nav-links[_ngcontent-ng-c3792361969]   .nav-link[_ngcontent-ng-c3792361969]:hover {
-  color: #25053aff !important;
+.custom-nav-links[_ngcontent-ng-c3327815651]   .nav-link[_ngcontent-ng-c3327815651]:hover {
+  color: #075b63ff !important;
 }
 @media (max-width: 991.98px) {
-  .navbar-collapse[_ngcontent-ng-c3792361969] {
+  .navbar-collapse[_ngcontent-ng-c3327815651] {
     position: absolute;
     top: 100%;
     right: 0.5rem;
     min-width: 200px;
   }
-  .navbar-collapse.show[_ngcontent-ng-c3792361969] {
+  .navbar-collapse.show[_ngcontent-ng-c3327815651] {
     background: rgba(2, 6, 23, 0.90);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
@@ -168,12 +165,12 @@ export default `<!DOCTYPE html><html lang="en"><head>
 /*# sourceMappingURL=/navbar.css.map */</style></head>
 
 <body translate="no">
-  <app-root ng-version="21.0.5" ng-server-context="ssg"><router-outlet></router-outlet><app-fps-game _nghost-ng-c3855774884=""><div _ngcontent-ng-c3855774884="" class="game-container"><app-navbar _ngcontent-ng-c3855774884="" _nghost-ng-c3792361969=""><nav _ngcontent-ng-c3792361969="" class="navbar navbar-expand-lg px-0"><div _ngcontent-ng-c3792361969="" class="container px-2 d-flex justify-content-between align-items-center flex-nowrap position-relative"><a _ngcontent-ng-c3792361969="" routerlink="/" class="navbar-brand" href="/"><i _ngcontent-ng-c3792361969="" class="bi bi-house brand-icon"></i></a><button _ngcontent-ng-c3792361969="" type="button" aria-label="Alternar navegación" class="navbar-toggler border-0 shadow-none" aria-expanded="false"><i _ngcontent-ng-c3792361969="" class="bi bi-list brand-icon"></i></button><div _ngcontent-ng-c3792361969="" class="collapse navbar-collapse flex-grow-0 text-end"><ul _ngcontent-ng-c3792361969="" class="navbar-nav ms-auto mb-2 mb-lg-0 custom-nav-links"><li _ngcontent-ng-c3792361969="" class="nav-item"><a _ngcontent-ng-c3792361969="" routerlink="/documentos" routerlinkactive="active" class="nav-link" href="/documentos"> Documentos </a></li><li _ngcontent-ng-c3792361969="" class="nav-item"><a _ngcontent-ng-c3792361969="" routerlink="/land" routerlinkactive="active" class="nav-link" href="/land"> Vector </a></li><!--container--><li _ngcontent-ng-c3792361969="" class="nav-item"><a _ngcontent-ng-c3792361969="" routerlink="/login" routerlinkactive="active" class="nav-link" href="/login"> Iniciar </a></li><!--container--></ul></div></div></nav></app-navbar><div _ngcontent-ng-c3855774884="" class="loading-overlay"><div _ngcontent-ng-c3855774884="" class="loader-card"><h2 _ngcontent-ng-c3855774884="">Cargando Escenario 3D...</h2><div _ngcontent-ng-c3855774884="" class="progress-bar-container"><div _ngcontent-ng-c3855774884="" class="progress-bar" style="width: 0%;"></div></div><p _ngcontent-ng-c3855774884="">0%</p></div></div><!--container--><div _ngcontent-ng-c3855774884="" class="crosshair hidden">+</div><div _ngcontent-ng-c3855774884="" class="instructions"><h1 _ngcontent-ng-c3855774884="">Juego FPS con Octree</h1><p _ngcontent-ng-c3855774884="">Haz clic aquí para <strong _ngcontent-ng-c3855774884="">Comenzar / Jugar</strong></p><ul _ngcontent-ng-c3855774884="" class="controls-list"><li _ngcontent-ng-c3855774884=""><strong _ngcontent-ng-c3855774884="">W, A, S, D</strong> : Moverse</li><li _ngcontent-ng-c3855774884=""><strong _ngcontent-ng-c3855774884="">ESPACIO</strong> : Saltar</li><li _ngcontent-ng-c3855774884=""><strong _ngcontent-ng-c3855774884="">CLIC IZQ</strong> : Lanzar esfera (mantén presionado para fuerza)</li><li _ngcontent-ng-c3855774884=""><strong _ngcontent-ng-c3855774884="">ESC</strong> : Liberar cursor / Pausa</li></ul></div></div></app-fps-game><!--container--></app-root>
+  <app-root ng-version="21.0.5" ng-server-context="ssg"><router-outlet></router-outlet><app-fps-game _nghost-ng-c3855774884=""><div _ngcontent-ng-c3855774884="" class="game-container"><app-navbar _ngcontent-ng-c3855774884="" _nghost-ng-c3327815651=""><nav _ngcontent-ng-c3327815651="" class="navbar navbar-expand-lg px-0"><div _ngcontent-ng-c3327815651="" class="container px-2 d-flex justify-content-between align-items-center flex-nowrap position-relative"><a _ngcontent-ng-c3327815651="" routerlink="/" class="navbar-brand" href="/"><i _ngcontent-ng-c3327815651="" class="bi bi-house brand-icon"></i></a><button _ngcontent-ng-c3327815651="" type="button" aria-label="Alternar navegación" class="navbar-toggler border-0 shadow-none" aria-expanded="false"><i _ngcontent-ng-c3327815651="" class="bi bi-list brand-icon"></i></button><div _ngcontent-ng-c3327815651="" class="collapse navbar-collapse flex-grow-0 text-end"><ul _ngcontent-ng-c3327815651="" class="navbar-nav ms-auto mb-2 mb-lg-0 custom-nav-links"><li _ngcontent-ng-c3327815651="" class="nav-item"><a _ngcontent-ng-c3327815651="" routerlink="/documentos" routerlinkactive="active" class="nav-link ffont" href="/documentos"> Documentos </a></li><li _ngcontent-ng-c3327815651="" class="nav-item"><a _ngcontent-ng-c3327815651="" routerlink="/land" routerlinkactive="active" class="nav-link ffont" href="/land"> Vector </a></li><!--container--><li _ngcontent-ng-c3327815651="" class="nav-item"><a _ngcontent-ng-c3327815651="" routerlink="/login" routerlinkactive="active" class="nav-link ffont" href="/login"> Iniciar </a></li><!--container--></ul></div></div></nav></app-navbar><div _ngcontent-ng-c3855774884="" class="loading-overlay"><div _ngcontent-ng-c3855774884="" class="loader-card"><h2 _ngcontent-ng-c3855774884="">Cargando Escenario 3D...</h2><div _ngcontent-ng-c3855774884="" class="progress-bar-container"><div _ngcontent-ng-c3855774884="" class="progress-bar" style="width: 0%;"></div></div><p _ngcontent-ng-c3855774884="">0%</p></div></div><!--container--><div _ngcontent-ng-c3855774884="" class="crosshair hidden">+</div><div _ngcontent-ng-c3855774884="" class="instructions"><h1 _ngcontent-ng-c3855774884="">Juego FPS con Octree</h1><p _ngcontent-ng-c3855774884="">Haz clic aquí para <strong _ngcontent-ng-c3855774884="">Comenzar / Jugar</strong></p><ul _ngcontent-ng-c3855774884="" class="controls-list"><li _ngcontent-ng-c3855774884=""><strong _ngcontent-ng-c3855774884="">W, A, S, D</strong> : Moverse</li><li _ngcontent-ng-c3855774884=""><strong _ngcontent-ng-c3855774884="">ESPACIO</strong> : Saltar</li><li _ngcontent-ng-c3855774884=""><strong _ngcontent-ng-c3855774884="">CLIC IZQ</strong> : Lanzar esfera (mantén presionado para fuerza)</li><li _ngcontent-ng-c3855774884=""><strong _ngcontent-ng-c3855774884="">ESC</strong> : Liberar cursor / Pausa</li></ul></div></div></app-fps-game><!--container--></app-root>
 <link rel="modulepreload" href="chunk-6CTWA3UM.js"><link rel="modulepreload" href="chunk-YIIFRX4I.js"><link rel="modulepreload" href="chunk-D7R3R2CZ.js"><link rel="modulepreload" href="chunk-P2ICAP4Z.js"><link rel="modulepreload" href="chunk-F5ND45CA.js"><link rel="modulepreload" href="chunk-2Q7FJWIC.js"><link rel="modulepreload" href="chunk-FXWIEX65.js"><link rel="modulepreload" href="chunk-3WPM564S.js"><script src="scripts.js" defer=""></script><script src="main.js" type="module"></script>
-<link rel="modulepreload" href="chunk-437YFRBD.js">
+<link rel="modulepreload" href="chunk-QK3454ZN.js">
 <link rel="modulepreload" href="chunk-YC5JMNYG.js">
 <link rel="modulepreload" href="chunk-C3ORDXL6.js">
-<link rel="modulepreload" href="chunk-6ZRP3T4M.js">
+<link rel="modulepreload" href="chunk-DGFZVSEJ.js">
 <link rel="modulepreload" href="chunk-DJCOHPHY.js">
 <link rel="modulepreload" href="chunk-ZUJZQ355.js">
 

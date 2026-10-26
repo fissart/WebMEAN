@@ -42,35 +42,34 @@ const NAV_CATEGORIES: readonly NavCategory[] = [
     icon: 'bi bi-mortarboard-fill',
     buttons: [
       { label: 'Trámite (Mesa de partes)', route: 'tramite', iconClass: 'bi bi-receipt' },
-      { label: 'Estadística institucional', route: 'stats', iconClass: 'bi bi-bar-chart-fill' },
-      { label: 'Artículos científicos', route: 'articulo', iconClass: 'bi bi-journal-text' },
-      { label: 'Blog', route: 'blog', iconClass: 'bi bi-file-post' },
       { label: 'Carreras', route: 'carreras', iconClass: 'bi bi-star' },
-      { label: 'Cursos', route: 'curses', iconClass: 'bi bi-mortarboard-fill' },
+      { label: 'Cursos', route: 'courses', iconClass: 'bi bi-mortarboard-fill' }, // Corregido 'curses' -> 'courses'
+      { label: 'Artículos científicos', route: 'articulo', iconClass: 'bi bi-journal-text' },
+      { label: 'Estadística institucional', route: 'stats', iconClass: 'bi bi-bar-chart-fill' },
+      { label: 'Blog', route: 'blog', iconClass: 'bi bi-file-post' },
     ]
   },
   {
-    title: 'Arte y Cultura',
-    icon: 'bi-brush-fill',
+    title: 'Arte, Cultura y Creación', // Nombre más descriptivo
+    icon: 'bi bi-brush-fill', // Corregido para incluir el prefijo 'bi '
     buttons: [
       { label: 'Museo virtual', route: 'exhibicion', iconClass: 'bi bi-bank' },
-      { label: 'Editor Latex ESFA', route: 'newww', iconClass: 'bi bi-text-right' },
-      { label: 'Video conferencia', route: 'video', iconClass: 'bi bi-camera-video-fill', isDynamic: true },
+      { label: 'Pintura digital', route: 'pintura', iconClass: 'bi bi-palette' },
+      { label: 'Editor de imágenes', route: 'imagen', iconClass: 'bi bi-image' },
+      { label: 'Editor de objetos 3D', route: 'blender', iconClass: 'bi bi-bezier2' },
+      { label: 'Editor LaTeX', route: 'latex', iconClass: 'bi bi-text-right' }, // Ruta y etiqueta estandarizadas
     ]
   },
   {
-    title: 'Herramientas y Extras',
-    icon: 'bi-gear-fill',
+    title: 'Herramientas y Utilidades',
+    icon: 'bi bi-gear-fill', // Corregido para incluir el prefijo 'bi '
     buttons: [
-      { label: 'Video game', route: 'game', iconClass: 'bi bi-controller' },
-      { label: 'Pintura digital', route: 'pintura', iconClass: 'bi bi-palette' },
-      { label: 'Editor de imágenes', route: 'imagen', iconClass: 'bi bi-image' },
-      { label: 'Editor de imágenes2', route: 'imagen2', iconClass: 'bi bi-image' },
-      { label: 'Editor objetos 3D', route: 'blender', iconClass: 'bi bi-bezier2' },
       { label: 'Audio HD', route: 'audio', iconClass: 'bi bi-badge-hd' },
+      { label: 'Videoconferencia', route: 'video', iconClass: 'bi bi-camera-video-fill', isDynamic: true },
+      { label: 'Videojuego', route: 'game', iconClass: 'bi bi-controller' },
     ]
   }
-];
+]
 
 const SOCIAL_LINKS: readonly SocialLink[] = [
   { label: 'WhatsApp', url: 'https://api.whatsapp.com/send?phone=+51966999215&text=Hola%20bienvenido', iconClass: 'bi bi-whatsapp', color: '#069d12' },
@@ -116,7 +115,7 @@ const SOCIAL_LINKS: readonly SocialLink[] = [
     <dialog #menuDialog class="custom-native-modal shadow-lg p-0 border-0 rounded-3" (click)="onDialogClick($event, menuDialog)">
       <div class="modal-content bg-white text-dark border-0 h-100 d-flex flex-column">
         <div class="modal-header border-bottom border-light p-3 d-flex justify-content-between align-items-center flex-shrink-0 bg-light rounded-top-3">
-          <h5 class="modal-title mb-0 fw-semibold text-secondary"><i class="bi bi-grid-fill me-2 text-info"></i> Menú de Navegación</h5>
+          <h5 class="modal-title mb-0 fw-semibold text-secondary"><i class="bi bi-grid-fill me-2 text-primary"></i> Menú de Navegación</h5>
         </div>
         
         <div class="modal-body p-3 flex-grow-1 overflow-auto custom-scrollbar">
@@ -134,7 +133,7 @@ const SOCIAL_LINKS: readonly SocialLink[] = [
                     [attr.aria-expanded]="isOpen" 
                     [attr.aria-controls]="'collapse' + i"
                   >
-                    <i [class]="cat.icon + ' me-2 text-info fs-5'"></i> 
+                    <i [class]="cat.icon + ' me-2 text-secondary fs-5'"></i> 
                     <span class="flex-grow-1">{{ cat.title }}</span>
                   </button>
                 </h2>
@@ -148,7 +147,7 @@ const SOCIAL_LINKS: readonly SocialLink[] = [
                           class="btn btn-light border border-info border-opacity-25 text-dark text-start d-flex align-items-center gap-3 py-2 px-3 action-btn-hover shadow-sm" 
                           (click)="navigateTo(btn)"
                         >
-                          <i [class]="btn.iconClass + ' text-info fs-6'"></i>
+                          <i [class]="btn.iconClass + ' text-warning fs-6'"></i>
                           <span class="small fw-medium">{{ btn.label }}</span>
                         </button>
                       }
@@ -167,13 +166,13 @@ const SOCIAL_LINKS: readonly SocialLink[] = [
     </dialog>
 
 
-    <div class="container py-3">
+    <div class="">
       <!-- Información Institucional -->
       <div class="text-center">
-        <h3 class=" my-0 ffont">
+        <h3 class=" my-0 ffont text-primary">
           ESCUELA SUPERIOR DE FORMACIÓN ARTÍSTICA
         </h3>
-        <div class="h5 ffont">"FELIPE GUAMÁN POMA DE AYALA"</div>
+        <div class="h6 ffont text-primary">"FELIPE GUAMÁN POMA DE AYALA"</div>
 
         <!-- <div class="text-center" style="height: 6cm;">
           <app-three-html-canvas></app-three-html-canvas>
@@ -183,7 +182,7 @@ const SOCIAL_LINKS: readonly SocialLink[] = [
         <div class="w-100 py-3 d-flex justify-content-center">
           <button 
             type="button"
-            class="btn btn-primary gap-1 d-flex align-items-center init-hover" 
+            class="btn btn-outline-warning gap-1 d-flex align-items-center init-hover" 
             (click)="openMenuModal()"
           >
             <i class="bi bi-list"></i>

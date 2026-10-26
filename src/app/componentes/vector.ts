@@ -96,7 +96,7 @@ export class ChildScene implements AfterViewInit, OnDestroy {
   private canvasRef = viewChild.required<ElementRef<HTMLCanvasElement>>('childCanvas');
   private containerRef = viewChild.required<ElementRef<HTMLDivElement>>('container');
   private labelRendererContainerRef = viewChild.required<ElementRef<HTMLDivElement>>('labelRendererContainer');
-  
+
   private ngZone = inject(NgZone);
   private http = inject(HttpClient);
 
@@ -190,7 +190,7 @@ export class ChildScene implements AfterViewInit, OnDestroy {
     this.scene.add(hemisphereLight);
 
     // 2. Foco Principal Anaranjado Cálido con Sombras Nítidas
-    this.spotLight = new THREE.SpotLight(0xff7722, 980);
+    this.spotLight = new THREE.SpotLight(0xfffffff, 980);
     this.spotLight.name = 'spotLight';
     this.spotLight.map = textures['disturb.jpg']!;
     this.spotLight.position.set(4, 8, 4);
@@ -271,8 +271,14 @@ export class ChildScene implements AfterViewInit, OnDestroy {
       helpers: false
     };
 
+    const folderw = this.gui.addFolder('Iluminación & Texturas');
+
+    folderw.add(params, 'map', textures).onChange((val: any) => {
+      this.spotLight.map = val;
+    });
+
     const folder = this.gui.addFolder('Iluminación & Texturas');
-    
+
     folder.add(params, 'map', textures).onChange((val: any) => {
       this.spotLight.map = val;
     });
@@ -376,7 +382,7 @@ export class ChildScene implements AfterViewInit, OnDestroy {
               const p = document.createElement('div');
               p.className = 'news-label';
               p.textContent = titleText;
-              
+
               const cDiv = new CSS2DObject(p);
               cDiv.position.set(0, 1.2, 0);
               modelClone.add(cDiv);
@@ -431,7 +437,7 @@ export class ChildScene implements AfterViewInit, OnDestroy {
       const p = document.createElement('div');
       p.className = 'news-label';
       p.textContent = titleText;
-      
+
       const cDiv = new CSS2DObject(p);
       cDiv.position.set(0, 0.8, 0);
       mesh.add(cDiv);
