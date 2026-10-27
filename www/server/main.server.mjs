@@ -28388,11 +28388,11 @@ var routes = [
   }, true ? { \u0275entryName: "src/app/componentes/acerca.ts" } : {}),
   __spreadValues({
     path: "exhibicion",
-    loadComponent: () => import("./chunk-42OZNV33.mjs").then((m) => m.VirtualMuseumComponent)
+    loadComponent: () => import("./chunk-IMU4MPH3.mjs").then((m) => m.VirtualMuseumComponent)
   }, true ? { \u0275entryName: "src/app/componentes/exhibicion.ts" } : {}),
   __spreadValues({
     path: "exhibicion/:id/:user",
-    loadComponent: () => import("./chunk-G5XDVVNP.mjs").then((m) => m.ArtCuratorshipComponent)
+    loadComponent: () => import("./chunk-4DV5XKJB.mjs").then((m) => m.ArtCuratorshipComponent)
   }, true ? { \u0275entryName: "src/app/componentes/exhibicionfiles.ts" } : {}),
   __spreadValues({
     path: "documentos",

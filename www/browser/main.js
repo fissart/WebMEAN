@@ -393,11 +393,11 @@ var routes = [
   }, false ? { \u0275entryName: "src/app/componentes/acerca.ts" } : {}),
   __spreadValues({
     path: "exhibicion",
-    loadComponent: () => import("./chunk-K3EOSALT.js").then((m) => m.VirtualMuseumComponent)
+    loadComponent: () => import("./chunk-KNBEU7IU.js").then((m) => m.VirtualMuseumComponent)
   }, false ? { \u0275entryName: "src/app/componentes/exhibicion.ts" } : {}),
   __spreadValues({
     path: "exhibicion/:id/:user",
-    loadComponent: () => import("./chunk-WOVRO4L5.js").then((m) => m.ArtCuratorshipComponent)
+    loadComponent: () => import("./chunk-W5IUZCTA.js").then((m) => m.ArtCuratorshipComponent)
   }, false ? { \u0275entryName: "src/app/componentes/exhibicionfiles.ts" } : {}),
   __spreadValues({
     path: "documentos",

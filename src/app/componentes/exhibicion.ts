@@ -17,7 +17,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { Navbar } from './navbar';
 import { isAuth } from './auth';
-
+import { ShoppingCartComponent } from './exhibitionshop'
 export interface Exhibition {
   _id?: string;
   id?: number | string;
@@ -112,11 +112,13 @@ export class MuseumService {
 @Component({
   selector: 'app-virtual-museum',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, RouterModule, Navbar],
+  imports: [CommonModule, FormsModule, HttpClientModule, RouterModule, Navbar, ShoppingCartComponent],
   template: `
     <app-navbar></app-navbar>
     <div class="py-5"></div>
 
+
+<app-shopping-cart/>
     <div class="museum-container p-1">
       <header class="museum-header">
         <h1>Museo Virtual Interactivo</h1>

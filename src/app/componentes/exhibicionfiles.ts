@@ -164,7 +164,6 @@ export function isAuth(): any {
                   Espacio de exhibición, análisis crítico y debate sobre colecciones visuales de {{userProfile.name}}.
                 </p>
               </div> 
-              <!-- {{this.userparams}} {{userSession()?._id}}wwwwwwwwwwwwwww -->
               @if ((userSession() && this.userparams === userSession()?._id) || userSession()?.rol === '1') {
                 <button
                   class="btn btn-warning"
@@ -190,9 +189,6 @@ export function isAuth(): any {
                       {{ getInitial(artwork.curator || artwork.email) }}
                     </div>
                     <div class="ms-3">
-                      <!-- <span class="fw-bold text-warning mb-0" style="line-height: 1.2;">
-                        Curador: {{ artwork.curator || 'Curador Anónimo' }}
-                      </span> -->
                       <small>
                         Exhibido el {{ formatDate(artwork.createdAt) }}
                       </small>
@@ -415,147 +411,172 @@ export function isAuth(): any {
         </div>
       </div>
 
-      <!-- Modal de Formulario de Curaduría -->
+      <!-- Modal de Formulario de Curaduría Mejorado -->
       @if (showModal()) {
-        <div class="modal fade show" tabindex="-1" style="background-color: rgba(0,0,0,0.85);">
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content bg-dark  border border-secondary">
-              <div class="modal-header border-secondary">
-                <h5 class="modal-title fw-bold text-warning mb-0 text-uppercase">{{ submitLabel() }}</h5>
-                <button type="button" class="btn-close btn-close-white" (click)="closeModal()"></button>
-              </div>
-              <div class="modal-body p-4">
-                @if (modalOption() === '1' || modalOption() === '1w') {
-                  <div class="mb-3">
-                    <label class="fw-bold small text-warning form-label text-uppercase">Título de la Muestra / Obra</label>
-                    <input
-                      type="text"
-                      class="form-control bg-secondary-dark  border-secondary"
-                      placeholder="Ej: El Claroscuro en el Arte Barroco..."
-                      [(ngModel)]="formTitle"
-                    />
-                  </div>
+        <div class="modal-backdrop-custom">
+          <div class="modal-card-custom shadow-lg">
+            <div class="modal-header border-secondary px-4 py-3 bg-dark rounded-top">
+              <h5 class="modal-title fw-bold text-warning mb-0 text-uppercase tracking-wide">
+                <i class="bi bi-journal-arrow-up me-2"></i>{{ submitLabel() }}
+              </h5>
+              <button type="button" class="btn btn-info" aria-label="Cerrar" (click)="closeModal()">Cerrar</button>
+            </div>
 
-                  <!-- CONTROL DE CARGA DE ARCHIVOS -->
-                  <div class="mb-3">
-                    <label class="fw-bold small text-warning form-label text-uppercase">Adjuntar Archivo / Imagen de la Obra</label>
+            <div class="modal-body p-4 overflow-y-auto" style="max-height: 75vh;">
+              @if (modalOption() === '1' || modalOption() === '1w') {
+                <div class="mb-3">
+                  <label class="fw-bold small text-warning form-label text-uppercase">Título de la Muestra / Obra</label>
+                  <input
+                    type="text"
+                    class="form-control bg-secondary-dark border-secondary shadow-none"
+                    placeholder="Ej: El Claroscuro en el Arte Barroco..."
+                    [(ngModel)]="formTitle"
+                  />
+                </div>
+
+                <!-- CONTROL DE CARGA DE ARCHIVOS -->
+                <div class="mb-3">
+                  <label class="fw-bold small text-warning form-label text-uppercase">Adjuntar Archivo / Imagen de la Obra</label>
+                  <input
+                    type="file"
+                    class="form-control bg-secondary-dark border-secondary shadow-none"
+                    [disabled]="isUploading()"
+                    (change)="onFileSelected($event)"
+                  />
+                  @if (selectedFile) {
+                    <small class="text-warning mt-1 d-block">
+                      <i class="bi bi-paperclip me-1"></i>
+                      Archivo seleccionado: <strong>{{ selectedFile.name }}</strong> ({{ (selectedFile.size / 1024).toFixed(1) }} KB)
+                    </small>
+                  }
+                </div>
+                
+                <div class="row g-2 mb-3">
+                  <div class="col-md-6">
+                    <label class="fw-bold small text-warning form-label text-uppercase">
+                      <i class="bi bi-mic-fill me-1"></i> Audio en Español (MP3/WAV)
+                    </label>
                     <input
                       type="file"
-                      class="form-control bg-secondary-dark  border-secondary"
+                      accept="audio/*"
+                      class="form-control bg-secondary-dark border-secondary shadow-none"
                       [disabled]="isUploading()"
-                      (change)="onFileSelected($event)"
+                      (change)="onAudioEsSelected($event)"
                     />
-                    @if (selectedFile) {
-                      <small class="text-warning mt-1">
-                        <i class="bi bi-paperclip me-1"></i>
-                        Archivo seleccionado: <strong>{{ selectedFile.name }}</strong> ({{ (selectedFile.size / 1024).toFixed(1) }} KB)
+                    @if (selectedAudioEs) {
+                      <small class="text-info mt-1 d-block text-truncate">
+                        <i class="bi bi-music-note me-1"></i> {{ selectedAudioEs.name }}
                       </small>
                     }
                   </div>
-                  
-                  <div class="row g-2 mb-3">
-                    <div class="col-md-6">
-                      <label class="fw-bold small text-warning form-label text-uppercase">
-                        <i class="bi bi-mic-fill me-1"></i> Audio en Español (MP3/WAV)
-                      </label>
-                      <input
-                        type="file"
-                        accept="audio/*"
-                        class="form-control bg-secondary-dark  border-secondary"
-                        [disabled]="isUploading()"
-                        (change)="onAudioEsSelected($event)"
-                      />
-                      @if (selectedAudioEs) {
-                        <small class="text-info mt-1 text-truncate">
-                          <i class="bi bi-music-note me-1"></i> {{ selectedAudioEs.name }}
-                        </small>
-                      }
-                    </div>
 
-                    <div class="col-md-6">
-                      <label class="fw-bold small text-warning form-label text-uppercase">
-                        <i class="bi bi-mic-fill me-1"></i> Audio en Quechua (MP3/WAV)
-                      </label>
-                      <input
-                        type="file"
-                        accept="audio/*"
-                        class="form-control bg-secondary-dark  border-secondary"
-                        [disabled]="isUploading()"
-                        (change)="onAudioQuSelected($event)"
-                      />
-                      @if (selectedAudioQu) {
-                        <small class="text-info mt-1 text-truncate">
-                          <i class="bi bi-music-note me-1"></i> {{ selectedAudioQu.name }}
-                        </small>
-                      }
-                    </div>
-                  </div>
-                }
-
-                <div class="mb-3">
-                  <label class="fw-bold small text-warning form-label text-uppercase">Texto Curatorial / Ficha Técnica</label>
-                  <div class="border border-secondary rounded overflow-hidden">
-                    <ckeditor
-                      [editor]="Editor"
-                      [config]="editorConfig"
-                      [(ngModel)]="formDetail"
-                    ></ckeditor>
+                  <div class="col-md-6">
+                    <label class="fw-bold small text-warning form-label text-uppercase">
+                      <i class="bi bi-mic-fill me-1"></i> Audio en Quechua (MP3/WAV)
+                    </label>
+                    <input
+                      type="file"
+                      accept="audio/*"
+                      class="form-control bg-secondary-dark border-secondary shadow-none"
+                      [disabled]="isUploading()"
+                      (change)="onAudioQuSelected($event)"
+                    />
+                    @if (selectedAudioQu) {
+                      <small class="text-info mt-1 d-block text-truncate">
+                        <i class="bi bi-music-note me-1"></i> {{ selectedAudioQu.name }}
+                      </small>
+                    }
                   </div>
                 </div>
+              }
 
-                <!-- Barra de Progreso de Carga -->
-                @if (isUploading()) {
-                  <div class="mt-3">
-                    <div class="d-flex justify-content-between text-warning small mb-1 fw-bold">
-                      <span>Subiendo archivo...</span>
-                      <span>{{ uploadProgress() }}%</span>
-                    </div>
-                    <div class="progress rounded-0 bg-secondary" style="height: 10px;">
-                      <div
-                        class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
-                        role="progressbar"
-                        [style.width.%]="uploadProgress()"
-                        [attr.aria-valuenow]="uploadProgress()"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
+              <div class="mb-3">
+                <label class="fw-bold small text-warning form-label text-uppercase">Texto Curatorial / Ficha Técnica</label>
+                <div class="border border-secondary rounded overflow-hidden bg-white text-dark">
+                  <ckeditor
+                    [editor]="Editor"
+                    [config]="editorConfig"
+                    [(ngModel)]="formDetail"
+                  ></ckeditor>
+                </div>
+              </div>
+
+              <!-- Barra de Progreso de Carga -->
+              @if (isUploading()) {
+                <div class="mt-3">
+                  <div class="d-flex justify-content-between text-warning small mb-1 fw-bold">
+                    <span>Subiendo archivo...</span>
+                    <span>{{ uploadProgress() }}%</span>
                   </div>
-                }
-              </div>
-
-              <div class="modal-footer border-secondary">
-                <button
-                  type="button"
-                  class="btn btn-outline-secondary rounded-0 px-4"
-                  [disabled]="isUploading()"
-                  (click)="closeModal()"
-                >
-                  Cancelar
-                </button>
-                
-                <button
-                  type="button"
-                  class="btn btn-warning rounded-0 px-4 fw-bold text-uppercase"
-                  [disabled]="isUploading()"
-                  (click)="handleModalSubmit()"
-                >
-                  @if (isUploading()) {
-                    <span class="spinner-border spinner-border-sm me-1" role="status"></span>
-                    Subiendo...
-                  } @else {
-                    Guardar en Galería
-                  }
-                </button>
-              </div>
-
+                  <div class="progress rounded-0 bg-secondary" style="height: 10px;">
+                    <div
+                      class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
+                      role="progressbar"
+                      [style.width.%]="uploadProgress()"
+                      [attr.aria-valuenow]="uploadProgress()"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                    ></div>
+                  </div>
+                </div>
+              }
             </div>
+
+            <div class="modal-footer border-secondary px-4 py-3 bg-dark rounded-bottom">
+              <button
+                type="button"
+                class="btn btn-outline-secondary rounded-0 px-4"
+                [disabled]="isUploading()"
+                (click)="closeModal()"
+              >
+                Cancelar
+              </button>
+              
+              <button
+                type="button"
+                class="btn btn-warning rounded-0 px-4 fw-bold text-uppercase"
+                [disabled]="isUploading()"
+                (click)="handleModalSubmit()"
+              >
+                @if (isUploading()) {
+                  <span class="spinner-border spinner-border-sm me-1" role="status"></span>
+                  Subiendo...
+                } @else {
+                  Guardar en Galería
+                }
+              </button>
+            </div>
+
           </div>
         </div>
       }
     </div>
   `,
   styles: [`
+    .modal-backdrop-custom {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1050;
+      padding: 1rem;
+    }
+    .modal-card-custom {
+      background-color: #1e293b;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 680px;
+      border: 1px solid #475569;
+      overflow: hidden;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   `]
 })
 export class ArtCuratorshipComponent implements OnInit {
@@ -677,7 +698,6 @@ export class ArtCuratorshipComponent implements OnInit {
       this.router.navigate(['/login']);
       return;
     }
-
     this.modalOption.set(option);
     this.submitLabel.set(submitText);
     this.formTitle = title;
@@ -685,6 +705,7 @@ export class ArtCuratorshipComponent implements OnInit {
     this.activeIndices.set(indices);
     this.activeId.set(id);
     this.showModal.set(true);
+    console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
   }
 
   closeModal(): void {
